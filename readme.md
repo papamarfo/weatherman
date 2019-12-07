@@ -12,7 +12,7 @@ You can install this package via composer using this command:
 $ composer require manford/weatherman
 ```
 
-The Manford\Weatherman\WeathermanServiceProvider is auto-discovered and registered by default.
+The `Manford\Weatherman\WeathermanServiceProvider` is auto-discovered and registered by default.
 
 If you want to register it yourself, add the ServiceProvider in config/app.php:
 ```php
@@ -24,13 +24,6 @@ If you want to register it yourself, add the ServiceProvider in config/app.php:
 ]
 ```
 
-You can publish the config and view files with:
-```bash
-php artisan vendor:publish --provider="Manford\Weatherman\WeathermanServiceProvider"
-```
-
-This is the contents of the published config file located in `config/weatherman.php`.
-
 The `Weather` facade is also auto-discovered.
 
 If you want to add it manually, add the Facade in config/app.php:
@@ -41,6 +34,13 @@ If you want to add it manually, add the Facade in config/app.php:
     'Weather' => Manford\Weatherman\Facades\Weatherman::class,
 ]
 ```
+
+You can publish the config and view files with:
+```bash
+php artisan vendor:publish --provider="Manford\Weatherman\WeathermanServiceProvider"
+```
+
+This is the contents of the published config file located in `config/weatherman.php`.
 
 Visit [OpenWeather](https://home.openweathermap.org/api_keys) to get your APP ID.
 
