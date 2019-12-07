@@ -8,7 +8,7 @@ A laravel wrapper for OpenWeather "city only" api
 
 You can install this package via composer using this command:
 
-``` bash
+```bash
 $ composer require manford/weatherman
 ```
 
@@ -76,7 +76,7 @@ This is the contents of the published view file located in `views/weatherman/vie
 ## Usage
 In your controller:
 
-``` php
+```php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -91,6 +91,12 @@ class PageController extends Controller
     	return view('welcome', compact('city'));
     }
 }
+```
+
+Include the view where you need it:
+
+```bash
+@include('weatherman.view')
 ```
 
 ## Contributing
