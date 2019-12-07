@@ -1,0 +1,40 @@
+{
+    "name": "manford/weatherman",
+    "type": "library",
+    "description": ":description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benjamin Manford",
+            "email": "benjaminmanford@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/manford/weatherman",
+    "keywords": [
+        "Laravel",
+        "Weatherman",
+        "Manford"
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.4"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Manford\\Weatherman\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Manford\\Weatherman\\WeathermanServiceProvider"
+            ],
+            "aliases": {
+                "Weatherman": "Manford\\Weatherman\\Facades\\Weatherman"
+            }
+        }
+    }
+}
