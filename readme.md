@@ -119,3 +119,15 @@ If you discover any security related issues, please email benjaminmanford@gmail.
 ## License
 
 MIT. Please see the [license file](license.md) for more information.
+
+[ico-version]: https://img.shields.io/packagist/v/manford/weatherman.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/manford/weatherman.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/manford/weatherman/master.svg?style=flat-square
+[ico-styleci]: https://styleci.io/repos/12345678/shield
+
+[link-packagist]: https://packagist.org/packages/manford/weatherman
+[link-downloads]: https://packagist.org/packages/manford/weatherman
+[link-travis]: https://travis-ci.org/manford/weatherman
+[link-styleci]: https://styleci.io/repos/12345678
+[link-author]: https://github.com/manford
+[link-contributors]: ../../contributors
