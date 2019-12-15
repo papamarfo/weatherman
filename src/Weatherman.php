@@ -8,17 +8,27 @@ use Exception;
 class Weatherman
 {
 	/**
+	 * Create a new Constructor
+	 */
+	public function __construct()
+	{
+		$this->client = new Client();
+		$this->app_id = config('weatherman.app_id');
+		$this->base_url = config('weatherman.base_url');
+	}
+
+	/**
 	 * Get weather by city
+	 *
+	 * @param $city
 	 */
     public function city($city)
     {
-    	$client = new Client();
-        $base_url = 'api.openweathermap.org/data/2.5/weather';
-        $app_id = config('weatherman.app_id');
-        	
     	try
 		{
-			$response = $client->request('GET', $base_url.'?q='.$city.'&APPID='.$app_id);
+			$response = $this->client->request(
+				'GET', $this->base_url.'?q='.$city.'&appid='.$this->app_id
+			);
 		}
 		catch (Exception $e)
 		{
@@ -32,6 +42,8 @@ class Weatherman
 
 	/**
 	 * Response handler
+	 *
+	 * @param $response
 	 */
 	public function responseHandler($response)
 	{
