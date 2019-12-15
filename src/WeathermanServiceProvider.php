@@ -14,8 +14,6 @@ class WeathermanServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'manford');
-
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
@@ -56,10 +54,5 @@ class WeathermanServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/weatherman.php' => config_path('weatherman.php'),
         ], 'weatherman.config');
-
-        // Publishing the views.
-        $this->publishes([
-            __DIR__.'/views' => base_path('resources/views/weatherman'),
-        ], 'weatherman.views');
     }
 }
