@@ -35,22 +35,52 @@ If you want to add it manually, add the Facade in config/app.php:
 ]
 ```
 
-You can publish the config and view files with:
+You can publish the config file with:
 ```bash
 php artisan vendor:publish --provider="Manford\Weatherman\WeathermanServiceProvider"
 ```
 
 This is the contents of the published config file located in `config/weatherman.php`.
 
-Visit [OpenWeather](https://home.openweathermap.org/api_keys) to get your APP ID.
-
 ```php
 return [
-    'app_id' => env('OPEN_WEATHER_APPID')
+    'base_url' => env('OPEN_WEATHER_URL'),
+
+    'app_id' => env('OPEN_WEATHER_ID')
 ];
 ```
 
-This is the contents of the published view file located in `views/weatherman/view.blade.php` file:
+Add and update your .env file with these.
+
+Visit [OpenWeather](https://home.openweathermap.org/api_keys) to get your ID.
+
+```
+OPEN_WEATHER_URL=https://api.openweathermap.org/data/2.5/weather
+OPEN_WEATHER_ID=
+```
+
+## Usage
+In your controller:
+
+```php
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Manford\Weatherman\Facades\Weatherman as Weather;
+
+class PageController extends Controller
+{
+    public function index()
+    {
+    	$city = Weather::city('accra');
+
+    	return view('welcome', compact('city'));
+    }
+}
+```
+
+Include this view where you need it:
+
 ```bash
 <div class="card-body">
     <h2>{{ $city->name }} Weather Status</h2>
@@ -73,32 +103,6 @@ This is the contents of the published view file located in `views/weatherman/vie
 </div>
 ```
 
-## Usage
-In your controller:
-
-```php
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use Manford\Weatherman\Facades\Weatherman as Weather; <--
-
-class PageController extends Controller
-{
-    public function index()
-    {
-    	$city = Weather::city('accra'); <--
-
-    	return view('welcome', compact('city'));
-    }
-}
-```
-
-Include the view where you need it:
-
-```bash
-@include('weatherman.view')
-```
-
 ## Contributing
 
 Please see [contributing.md](contributing.md) for details and a todolist.
@@ -115,15 +119,3 @@ If you discover any security related issues, please email benjaminmanford@gmail.
 ## License
 
 MIT. Please see the [license file](license.md) for more information.
-
-[ico-version]: https://img.shields.io/packagist/v/manford/weatherman.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/manford/weatherman.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/manford/weatherman/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
-
-[link-packagist]: https://packagist.org/packages/manford/weatherman
-[link-downloads]: https://packagist.org/packages/manford/weatherman
-[link-travis]: https://travis-ci.org/manford/weatherman
-[link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/manford
-[link-contributors]: ../../contributors
