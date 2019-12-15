@@ -1,5 +1,7 @@
 <?php
 
 return [
-    'app_id' => env('OPEN_WEATHER_APPID')
+	'base_url' => env('OPEN_WEATHER_URL'),
+
+    'app_id' => env('OPEN_WEATHER_ID')
 ];
